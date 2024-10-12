@@ -27,7 +27,9 @@ function App() {
   };
   return (
     <div className="App"> 
-  <Pie data={data}  width={20} height={20} />
+    <div style={{width:'400px',height:'400px'}}>
+    <Pie data={data} />
+    </div>
     </div>
   );
 }
