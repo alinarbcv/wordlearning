@@ -1,1 +1,1 @@
-export const data=[{word:"apple",translate:"apple" ,transcription: "apple" , isLearned:true, id:1},{word:"mom",translate:"mom" ,transcription: "mom" , isLearned:true, id:2},{word:"sun",translate:"sun" ,transcription: "sun" , isLearned:true, id:3}]
+export const data=[{word:"apple",translate:"apple" ,transcription: "apple" , isLearned:true, id:1},{word:"Hello",translate:"Hallo" ,transcription: "[həˈloʊ]" , isLearned:true, id:2},{word:"sun",translate:"sun" ,transcription: "sun" , isLearned:true, id:3}]

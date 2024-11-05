@@ -9,13 +9,24 @@ function onHideClick(){
 }
 
     return (
-        <div className="card">
-            <div className="card-body">
-                <h4 className="card-title">{props.title} </h4>
-                <p className="card-text">{props.description}</p>
-                <p className="card-translate">{props.translate}</p>
+        <div className={style.card}>
+            <div className={style.cardBody}>
+            {!props.checked ? (
+          <h4 className={style.cardTitle}>{props.title}</h4>
+        ) : (
+          
+          <>
+          <p className={style.cardTranslate}>{props.translate}</p>
+          <p className={style.cardText}>{props.description}</p>
+            
+          </>
+        )}
+
             </div>
             <div className={style.button}>
+            <button onClick={props.onCheckClick}>
+                    {props.checked ? "Show word again" : "Check"}
+                </button>
                 <button onClick={props.onNextClick} className="card-add">Next word</button>
                {!props.tableVisible && 
                 <button onClick={onShowClick} className="card-add">Show words that I have learned</button> }

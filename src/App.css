@@ -41,10 +41,24 @@ body {
   background-color: rgb(164, 198, 209);
 }
 button{
-  background-color:rgb(20, 209, 36);
-  width: 10%;
-  padding: 10px;
-  margin: 15px;
-  font-size:10px;
-  font-weight: bold;
+  background-color: #007bff; 
+    color: #fff;               
+    border: none;             
+    padding: 10px 20px;       
+    font-size: 16px;           
+    font-weight: bold;         
+    border-radius: 5px;        
+    cursor: pointer;           
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.card-text{
+    background-color: #f0f8ff;
+    color: #333;              
+    font-size: 1.1rem;
+    padding: 15px;
+    border-radius: 8px;        
+    margin-bottom: 10px;       
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
