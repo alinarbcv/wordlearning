@@ -13,7 +13,7 @@ return(
 
         </tr>
        {
-        tableData.filter(item=>item.isLearned).map(item=><Tableraw word={item.word} translate={item.translate} transcription={item.transcription} repeat={item.isLearned} />)
+        tableData.filter(item=>item.isLearned).map(item=><Tableraw key={item.word} word={item.word} translate={item.translate} transcription={item.transcription} repeat={item.isLearned} />)
        }
     </table>
 );

@@ -26,7 +26,7 @@ function onHideClick(){
             <div className={style.button}>
             <button onClick={props.onCheckClick}>
                     {props.checked ? "Show word again" : "Check"}
-                </button>
+                </button> 
                 <button onClick={props.onNextClick} className="card-add">Next word</button>
                {!props.tableVisible && 
                 <button onClick={onShowClick} className="card-add">Show words that I have learned</button> }
