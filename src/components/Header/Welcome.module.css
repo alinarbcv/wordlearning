@@ -1,0 +1,24 @@
+.welcomeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe); 
+  color: #1e3a8a; 
+  text-align: center;
+}
+
+.title {
+  font-size: 3rem;
+  color: #1d4ed8; 
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 1.5rem;
+  color: #334155; 
+  max-width: 600px;
+  margin: 0 auto;
+}
