@@ -1,12 +1,7 @@
 import style from "./Cards.module.css"
 
 function Cards(props) {
-function onShowClick(){
-    props.setTableVisible(true);
-}
-function onHideClick(){
-    props.setTableVisible(false);
-}
+
 
     return (
         <div className={style.card}>
@@ -27,14 +22,11 @@ function onHideClick(){
             <button onClick={props.onCheckClick}>
                     {props.checked ? "Show word again" : "Check"}
                 </button> 
-                <button onClick={props.onNextClick} className="card-add">Next word</button>
-               {!props.tableVisible && 
-                <button onClick={onShowClick} className="card-add">Show words that I have learned</button> }
-                {props.tableVisible && 
-                    <button onClick={onHideClick} className="card-add">Should I hide the table?</button>}
+                <button onClick={props.onNextClick} className="card-add">Next word</button>           
             </div>
         </div>
     );
 }
 
 export default Cards;
+

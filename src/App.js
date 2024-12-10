@@ -14,10 +14,10 @@ import Welcome from './components/Header/Welcome';
 
 
 function App() {
-  const [tableVisible, setTableVisible]=useState(false);
  const [tableData,setTableData]=useState(data)
  const [index,setIndex]=useState(0);
  const [checked,setChecked]=useState(false);
+ const [learnedWords, setLearnedWords] = useState([]);
 
  useEffect(() => {
 
@@ -31,6 +31,7 @@ function App() {
         word: item.word,
         translate: item.translate || 'No translation available',
         transcription: item.transcription  || 'No transkription available',
+        isLearned: false,
       }));
 
 
@@ -51,9 +52,20 @@ function App() {
     setIndex(index+1);
   }
  }
- function onCheckClick() {
-  setChecked(prevChecked => !prevChecked); 
-}
+ const onCheckClick = () => {
+  const currentWord = tableData[index];
+
+  setChecked((prevChecked) => !prevChecked);
+
+  setLearnedWords((prevWords) => {
+    if (!prevWords.some((word) => word.word === currentWord.word)) {
+      return [...prevWords, { ...currentWord, isLearned: true }];
+    }
+    return prevWords;
+  });
+};
+
+
  
    return (
     <Router>
@@ -73,33 +85,27 @@ function App() {
                 onCheckClick={onCheckClick}
                 setChecked={setChecked}
                 checked={checked}
-                setTableVisible={setTableVisible}
-                tableVisible={tableVisible}
               />
             }
           />
           <Route
-            path="/Table"
-            element={tableVisible && <Table tableData={tableData} setTableData={setTableData} />}
-          />
+    path="/Table"
+    element={
+      <div>
+        <Learnedwords description="You have learned these words:" />
+        <Table tableData={learnedWords} setTableData={setTableData} />
+      </div>
+    }
+  />
         </Routes>
         </div>
     </Router>
   );
 }
 
+
 export default App;
 
 
 
 
-
-/* {  tableVisible && 
-  <div className="table">
-     <Learnedwords
-     description="You have learnd this words:"
-     />
-      <Route path="/Table" element={tableVisible && <Table tableData={tableData} setTableData={setTableData} />}/>
-    
-  </div> 
-}  */
