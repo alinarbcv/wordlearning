@@ -4,10 +4,11 @@ import { Link } from "react-router-dom";
 
 
 
+
 function Menu(){
     return(
      <div className={style.menu}>
-        <img src="../img/Objekt2.png" alt="icon" className={style.icon}/>
+<img src="./Header/Objekt.png" alt="icon" className={style.icon} />
         <Link to="/">Home</Link>
         <Link to="/Game"> Game </Link>
         <Link to="/Table"> Table</Link>

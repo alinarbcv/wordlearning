@@ -1,14 +1,14 @@
-import style from "./Table.module.css"
-
-function Tableraw(props){
-    return(
-        <tr>
-        <td>{props.word}</td>
-        <td>{props.translate}</td>
-        <td>{props.transcription}</td>
-        <td>{props.repeat}</td>
-
-    </tr>
+function Tableraw({ word, translate, onDelete }) {
+    return (
+      <tr>
+        <td>{word}</td>
+        <td>{translate}</td>
+        <td>
+          <button onClick={onDelete}>Delete</button>
+        </td>
+      </tr>
     );
-}
-export default Tableraw;
+  }
+  
+  export default Tableraw;
+  

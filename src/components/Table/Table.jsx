@@ -1,17 +1,16 @@
-import style from "./Table.module.css";
+import React, { useContext } from "react";
+import { WordContext } from "../../WordContext";
 import Tableraw from "./Tableraw";
+import style from "./Table.module.css";
 
-function Table(props) {
-    const { tableData, setTableData } = props;
+function Table() {
+  const { learnedWords, setLearnedWords } = useContext(WordContext);
 
-    const WordIsLearned = (id) => {
-        console.log(`Word with ID ${id} was selected for repetition.`);
-        setTableData(prevData =>
-          prevData.map(item =>
-            item.id === id ? { ...item, isLearned: false } : item
-          )
-        );
-      };
+  const onDelete = (wordToDelete) => {
+    setLearnedWords((prevWords) =>
+      prevWords.filter((word) => word.word !== wordToDelete)
+    );
+  };
 
   return (
     <table className={style.table}>
@@ -19,18 +18,16 @@ function Table(props) {
         <tr>
           <th>Word</th>
           <th>Translate</th>
-          <th>Transcription</th>
-          <th>Which word would you like to repeat?</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
-        {tableData?.filter(item => item.isLearned).map(item => (
+        {learnedWords.map((item) => (
           <Tableraw
             key={item.word}
             word={item.word}
             translate={item.translate}
-            transcription={item.transcription}
-            repeat={item.isLearned}
+            onDelete={() => onDelete(item.word)}
           />
         ))}
       </tbody>

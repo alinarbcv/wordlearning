@@ -9,6 +9,12 @@ import { useEffect } from 'react';
 import { BrowserRouter as Router , Routes, Route, Link} from 'react-router-dom';
 import Menu from './components/Header/Menu';
 import Welcome from './components/Header/Welcome';
+import { WordProvider, WordContext } from "./WordContext";
+
+
+
+
+
 
 
 
@@ -18,6 +24,11 @@ function App() {
  const [index,setIndex]=useState(0);
  const [checked,setChecked]=useState(false);
  const [learnedWords, setLearnedWords] = useState([]);
+ const onDelete = (wordToDelete) => {
+  setLearnedWords((prevWords) =>
+    prevWords.filter((word) => word.word !== wordToDelete)
+  );
+};
 
  useEffect(() => {
 
@@ -68,38 +79,27 @@ function App() {
 
  
    return (
-    <Router>
-    <div className="App">
-     <Header/>
-     <Menu/>
-     <Routes>
-      <Route path="/" element={<Welcome />} /> 
-          <Route
-            path="/Game"
-            element={
-              <Cards
-                title={tableData[index]?.word}
-                description={tableData[index]?.transcription}
-                translate={tableData[index]?.translate}
-                onNextClick={onNextClick}
-                onCheckClick={onCheckClick}
-                setChecked={setChecked}
-                checked={checked}
-              />
-            }
-          />
-          <Route
-    path="/Table"
-    element={
-      <div>
-        <Learnedwords description="You have learned these words:" />
-        <Table tableData={learnedWords} setTableData={setTableData} />
-      </div>
-    }
-  />
-        </Routes>
+    <WordProvider>
+      <Router>
+        <div className="App">
+          <Header />
+          <Menu />
+          <Routes>
+            <Route path="/" element={<Welcome />} />
+            <Route path="/Game" element={<Cards />} />
+            <Route
+              path="/Table"
+              element={
+                <div>
+                  <h2>You have learned these words:</h2>
+                  <Table />
+                </div>
+              }
+            />
+          </Routes>
         </div>
-    </Router>
+      </Router>
+    </WordProvider>
   );
 }
 
