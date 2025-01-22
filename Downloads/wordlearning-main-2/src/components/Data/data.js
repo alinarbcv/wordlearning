@@ -1,0 +1,1 @@
+export const data=[{word:"apple",translate:"der Apfel" ,transcription: " [ˈæpl]" , isLearned:true, id:1},{word:"Hello",translate:"Hallo" ,transcription: "[həˈloʊ]" , isLearned:true, id:2},{word:"sun",translate:"die Sonne" ,transcription: " [sʌn]" , isLearned:true, id:3}]
